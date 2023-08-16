@@ -8,7 +8,7 @@ import GridPic from '../components/GridPic.astro';
 import Subtitle from '../components/Subtitle.astro';
 import Post from '../components/Post.astro';
 import Container from '../components/Container.astro';
-import json from './data/home.json';
+import json from '../../data/home.json';
 
 const posts = await Astro.glob('../pages/vacantes/*.md');
 const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
