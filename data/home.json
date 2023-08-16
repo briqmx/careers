@@ -1,0 +1,54 @@
+{
+  "benefits": [
+    {
+      "content": "Vacaciones ilimitadas, todos merecemos tiempo para descansar y recargarnos.",
+      "image": "vacations.png"
+    },
+    {
+      "content": "Trabajo remoto para colaborar desde cualquier parte del mundo.",
+      "image": "remote.png"
+    },
+    {
+      "content": "Días de enfermedad para cuidar nuestra salud.",
+      "image": "flexible.png"
+    },
+    {
+      "content": "Monto mensual (Todos Invertimos) para usarlos a través de briq.mx",
+      "image": "invest.png"
+    },
+    {
+      "content": "Cuidado psicológico y social , te ayudamos con terapias y capacitaciones continuas.",
+      "image": "happy.png"
+    },
+    {
+      "content": "Día para cuidar nuestra salud mental y volver a conectar con nosotros mismos.",
+      "image": "mental.png"
+    },
+    {
+      "content": "Tiempo de paternidad para disfrutar de tu bebé y adaptarte a tu nueva etapa de vida.",
+      "image": "baby.png"
+    }
+  ],
+  "practices": [
+    {
+      "content": "Trabajamos con objetivos medibles para saber a dónde queremos llegar.",
+      "image": "goals.png"
+    },
+    {
+      "content": "Automatizamos procesos mediante tecnología para facilitar nuestra operación.",
+      "image": "process.png"
+    },
+    {
+      "content": "Evitamos el uso excesivo de juntas para aumentar nuestra productividad.",
+      "image": "meetings.png"
+    },
+    {
+      "content": "Provocamos la libertad de expresión para proponer y cuestionar.",
+      "image": "question.png"
+    },
+    {
+      "content": "Nos comunicamos de forma transversal para ser ágiles y trabajar en colaboración.",
+      "image": "communication.png"
+    }
+  ]
+}

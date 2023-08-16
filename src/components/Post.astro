@@ -1,0 +1,36 @@
+---
+export interface Props {
+  post: {
+    frontmatter?: {
+      title: string;
+      area: string;
+      location: string;
+      type: string;
+    };
+    url: string;
+  }
+}
+
+const { post } = Astro.props;
+---
+
+<article class="bg-navy text-white p-4 rounded-lg flex flex-col justify-between min-h-[300px]">
+  <div class="w-full flex items-start justify-between flex-col md:flex-row gap-4">
+    <div class="space-y-2">
+      <h3 class="font-display font-medium text-2xl">{post.frontmatter.title}</h3>
+      <div class="flex gap-2 flex-wrap">
+        <span class="py-1 px-2 rounded-md inline-block bg-white/20">{post.frontmatter.area}</span>
+        <span class="py-1 px-2 rounded-md inline-block bg-white/20">{post.frontmatter.location}</span>
+        <span class="py-1 px-2 rounded-md inline-block bg-white/20">{post.frontmatter.type}</span>
+      </div>
+    </div>
+    <div>
+      <span>Hace 2 meses</span>
+    </div>
+  </div>
+  <div class="w-full flex justify-end">
+    <a href={post.url} class="inline-flex items-center justify-center rounded-md h-[52px] px-4 py-2 font-semibold bg-blue text-navy" target="_blank"	>
+      Ver vacante
+    </a>
+  </div>
+</article>

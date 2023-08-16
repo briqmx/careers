@@ -1,0 +1,14 @@
+---
+export interface Props {
+  name: string;
+  desripction: string;
+  delay: number;
+}
+
+const { desripction, name, delay } = Astro.props
+---
+
+<article class="w-[300px] h-[250px] bg-navy/5 p-4 rounded-lg flex flex-col justify-between" data-aos="fade-up" data-aos-delay={delay}>
+  <h3 class="text-xl font-display font-medium mb-4">{name}</h3>
+  <p class="text-navy/80 min-h-[60px]">{desripction}</p>
+</article>

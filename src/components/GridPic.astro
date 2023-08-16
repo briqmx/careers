@@ -1,0 +1,47 @@
+---
+export interface Props {
+  image: string;
+}
+
+const { image } = Astro.props;
+const blocks = Array.from({ length: 23 }, (_, i) => i);
+---
+
+<figure class="bg-navy h-[300px] md:h-[500px] overflow-hidden relative">
+  <div id="grid" class="absolute inset-0 grid">
+    <div class="not"></div>
+    {blocks.map((block, index) => (
+      <div style={{ animationDelay: `${index * 0.05}s` }}>
+      </div>
+    ))}
+    <div class="not"></div>
+  </div>
+  <img src={image} alt="" class="object-cover object-center w-full h-full" />
+</figure>
+
+<style>
+  #grid {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  #grid div {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    opacity: 1;
+  }
+
+  #grid div:not(.not) {
+    animation: fadeout 0.1s linear forwards;
+  }
+
+  @keyframes fadeout {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+</style>
