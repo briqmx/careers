@@ -1,209 +1,375 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import Location from '../components/Location.astro';
-import Ritual from '../components/Ritual.astro';
-import Value from '../components/Value.astro';
-import GridPic from '../components/GridPic.astro';
-import Subtitle from '../components/Subtitle.astro';
-import Post from '../components/Post.astro';
-import Container from '../components/Container.astro';
-import json from '../../data/home.json';
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Location from "../components/Location.astro";
+import Ritual from "../components/Ritual.astro";
+import Value from "../components/Value.astro";
+import GridPic from "../components/GridPic.astro";
+import Subtitle from "../components/Subtitle.astro";
+import Post from "../components/Post.astro";
+import Container from "../components/Container.astro";
+import json from "../../data/home.json";
 
-const posts = await Astro.glob('../pages/vacantes/*.md');
+const posts = await Astro.glob("../pages/vacantes/*.md");
 const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
 ---
 
 <Layout title="Welcome to Astro.">
-	<header>
-		<div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
-				<div class="flex items-stretch gap-12 flex-col md:flex-row">
-					<div class="w-full flex flex-col justify-between">
-						<div class="space-y-8 mb-4">
-							<nav>
-								<div class="flex items-center space-x-4">
-									<img src="/assets/logo.svg" alt="" class="h-[24px]" />
-									<span class="bg-blue text-navy font-display font-bold px-1 py-2 text-xs rounded-lg fade-in">Carreras</span>
-								</div>
-							</nav>
-							<h1 class="font-display font-bold text-2xl md:text-4xl">Reinventemos juntos las inversiones en bienes raíces.</h1>
-							<p class="font-display text-xl font-medium">En briq.mx hacemos posible el fondeo de proyectos de desarrollo inmobiliario a través del crowdfunding.</p>
-							<div class="flex gap-2">
-								<a href="#" class="inline-flex items-center justify-center rounded-md h-[52px] px-4 py-2 font-semibold bg-navy text-white hover:opacity-75">Ver vacantes</a>
-								<a href="#" class="inline-flex items-center justify-center rounded-md h-[52px] px-4 py-2 font-semibold bg-navy/10 text-navy hover:bg-navy/20">Conócenos</a>
-							</div>
-						</div>
-						<div class="flex gap-4">
-							<div class="border-t py-4">
-								<p>Superamos los $1,000 millones de pesos fondeados</p>
-							</div>
-							<div class="border-t py-4">
-								<p>Superamos los $1,000 millones de pesos fondeados</p>
-							</div>
-						</div>
-					</div>
-					<div class="w-full">
-						<GridPic image="/assets/hero.jpg" />
-					</div>
-				</div>
-		</div>
-	</header>
-	<section>
-		<div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
-			<div class="flex gap-12 items-stretch md:flex-row flex-col-reverse">
-				<div class="w-full">
-					<GridPic image="/assets/about.jpg" />
-				</div>
-				<div class="w-full">
-					<div class="bg-navy/5 rounded-xl p-8 flex flex-col justify-between h-full">
-						<div class="text-xl mb-4">
-							<img src="/assets/flag.png" alt="" class="h-[24px] mb-4" />
-							<h2 class="font-medium font-display text-blue">En briq.mx</h2>
-							<p class="font-display font-medium">Queremos que todos los mexicanos tengan dinero invertido en proyectos que creen valor para su entorno y obtengan un beneficio económico por ello.</p>
-						</div>
-						<div>
-							<a class="underline font-semibold" href="#">Conoce mas aquí</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	<section>
-		<div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
-			<div class="space-y-4 mb-8">
-				<Subtitle title="Nuesros principios" />
-				<p class="text-xl font-display font-medium max-w-3xl">Estos son la clave para que el equipo trascienda; guían nuestra forma de actuar, de pensar e incluso de cómo nos relacionamos dentro y fuera de briq.mx.</p>
-				<div class="flex gap-2 flex-col md:flex-row">
-					<Value name="La gente es lo que importa" desripction="Promovemos el desarrollo y bienestar de nuestro equipo" delay={0} />
-					<Value name="Lo que hacemos, lo hacemos bien" desripction="Lo hacemos con calidad y eficiencia, tanto el camino como el destino." delay={100} />
-					<Value name="Menos es más" desripction="Creamos soluciones claras y fáciles de entender." delay={200} />
-					<Value name="Nuestro impacto es grande" desripction="Maximizamos el impacto de las cosas al hacerlas replicables y escalables." delay={300} />
-					<Value name="Somos transparentes" desripction="Compartimos información útil para fortalecer la confianza y generar aprendizaje." delay={400} />
-				</div>
-				<p>Puedes conocer más de nuestros valores aquí.</p>
-			</div>
-		</div>
-	</section>
-	<section>
-		<div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
-			<div class="flex gap-12 items-start flex-col md:flex-row">
-				<div class="w-full space-y-4">
-					<Subtitle title="Beneficios" />
-					<p class="text-xl font-display font-medium max-w-xl">Nuestro compromiso es brindarte las herramientas necesarias para estar tranquilo.</p>
-					<a class="underline text-blue font-semibold inline-block" href="#">Conoce más aquí</a>
-				</div>
-				<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
-					{json.benefits.map(benefit => <Card body={benefit.content} image={`/assets/${benefit.image}`} />)}
-				</div>
-			</div>
-		</div>
-	</section>
-	<section>
-		<div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
-			<div class="flex gap-12 items-start flex-col md:flex-row">
-				<div class="w-full space-y-4">
-					<Subtitle title="Prácticas" />
-					<p class="text-xl font-display font-medium max-w-xl">Así es como promovemos la eficiencia y flexibilidad al colaborar en briq.mx.</p>
-					<a class="underline text-blue font-semibold inline-block" href="#">Conoce más aquí</a>
-				</div>
-				<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
-					{json.practices.map(practice => <Card body={practice.content} image={`/assets/${practice.image}`} />)}
-				</div>
-			</div>
-		</div>
-	</section>
-	<section>
-		<div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
-			<div class="flex flex-col justify-center text-center items-center space-y-8 py-24 px-4 bg-navy/5 rounded-lg" data-aos="fade-in">
-				<img src="/assets/world.png" alt="" class="h-[16px] animate-spin" />
-				<h2 class="text-xl md:text-2xl font-display font-medium max-w-2xl">Puedes ser parte de briq.mx sin importar de donde eres y en donde vivas. Nuestra modalidad flexible de trabajo y nuestra cultura incluyente nos ha dado acceso a talento de países como:</h2>
-				<div class="marquee overflow-hidden w-full flex items-center relative">
-					<div class="absolute w-32 left-0 top-0 bottom-0 bg-gradient-to-r from-bone to-transparent z-10"></div>
-					<div class="absolute w-32 right-0 top-0 bottom-0 bg-gradient-to-l from-bone to-transparent z-10"></div>
-					<div class="marquee__content">
-						<Location name="España" image="/assets/españa.jpg" />
-						<Location name="México" image="/assets/mexico.jpg" />
-						<Location name="Perú" image="/assets/peru.jpg" />
-						<Location name="Uruguay" image="/assets/uruguay.jpg" />
-						<Location name="Colombia" image="/assets/colombia.jpg" />
-					</div>
-					<div class="marquee__content" aria-hidden="true">
-						<Location name="España" image="/assets/españa.jpg" />
-						<Location name="México" image="/assets/mexico.jpg" />
-						<Location name="Perú" image="/assets/peru.jpg" />
-						<Location name="Uruguay" image="/assets/uruguay.jpg" />
-						<Location name="Colombia" image="/assets/colombia.jpg" />
-					</div>
-				</div>
+  <header>
+    <div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
+      <div class="flex items-stretch gap-12 flex-col md:flex-row">
+        <div class="w-full flex flex-col justify-between">
+          <div class="space-y-8 mb-4">
+            <nav>
+              <div class="flex items-center space-x-4">
+                <img
+                  src={`${import.meta.env.BASE_URL}/assets/logo.svg`}
+                  alt=""
+                  class="h-[24px]"
+                />
+                <span
+                  class="bg-blue text-navy font-display font-bold px-1 py-2 text-xs rounded-lg fade-in"
+                  >Carreras</span
+                >
+              </div>
+            </nav>
+            <h1 class="font-display font-bold text-2xl md:text-4xl">
+              Reinventemos juntos las inversiones en bienes raíces.
+            </h1>
+            <p class="font-display text-xl font-medium">
+              En briq.mx hacemos posible el fondeo de proyectos de desarrollo
+              inmobiliario a través del crowdfunding.
+            </p>
+            <div class="flex gap-2">
+              <a
+                href="#"
+                class="inline-flex items-center justify-center rounded-md h-[52px] px-4 py-2 font-semibold bg-navy text-white hover:opacity-75"
+                >Ver vacantes</a
+              >
+              <a
+                href="#"
+                class="inline-flex items-center justify-center rounded-md h-[52px] px-4 py-2 font-semibold bg-navy/10 text-navy hover:bg-navy/20"
+                >Conócenos</a
+              >
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="border-t py-4">
+              <p>Superamos los $1,000 millones de pesos fondeados</p>
+            </div>
+            <div class="border-t py-4">
+              <p>Superamos los $1,000 millones de pesos fondeados</p>
+            </div>
+          </div>
+        </div>
+        <div class="w-full">
+          <GridPic image={`${import.meta.env.BASE_URL}/assets/hero.jpg`} />
+        </div>
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
+      <div class="flex gap-12 items-stretch md:flex-row flex-col-reverse">
+        <div class="w-full">
+          <GridPic image={`${import.meta.env.BASE_URL}/assets/about.jpg`} />
+        </div>
+        <div class="w-full">
+          <div
+            class="bg-navy/5 rounded-xl p-8 flex flex-col justify-between h-full"
+          >
+            <div class="text-xl mb-4">
+              <img
+                src={`${import.meta.env.BASE_URL}/assets/flag.png`}
+                alt=""
+                class="h-[24px] mb-4"
+              />
+              <h2 class="font-medium font-display text-blue">En briq.mx</h2>
+              <p class="font-display font-medium">
+                Queremos que todos los mexicanos tengan dinero invertido en
+                proyectos que creen valor para su entorno y obtengan un
+                beneficio económico por ello.
+              </p>
+            </div>
+            <div>
+              <a class="underline font-semibold" href="#">Conoce mas aquí</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-			</div>
-		</div>
-	</section>
-	<section>
-		<div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
-			<div class="w-full space-y-4 mb-8">
-				<Subtitle title="Convivencia" />
-				<p class="text-xl font-display font-medium max-w-xl">Nos reunimos de forma virtual y presencial para pasar tiempo juntos, fortalecer la colaboración y ponernos al día de lo que hacemos</p>
-			</div>
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-				<Ritual category="Presencial" title="Briq Break" description="Cada mitad de año nos reunimos para divertirnos y desconectarnos del trabajo." image="/assets/briq-break.jpg" />
-				<Ritual category="Presencial" title="Navidad Briq" description="Para celebrar los logros de cada año y definir los objetivos del siguiente periodo." image="/assets/years-eve.jpg" />
-				<Ritual category="Virtual" title="Tazas, No tasas" description="Para reunirnos entre nosotros o con invitados y hablar de todo, menos de trabajo." image="/assets/tazas-no-tasas.jpg" />
-				<Ritual category="Virtual" title="Update Semanal" description="Para arrancar la semana compartiendo nuestros logros de días pasados y compartiendo temas importantes que todos debamos saber." image="/assets/update-semanal.jpg" />
-			</div>
-		</div>
-	</section>
-	<section class="bg-navy/5 border-t">
-		<div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
-			<div class="w-full space-y-4 mb-8">
-				<Subtitle title="Vacantes activas" />
-				<p class="text-xl font-display font-medium">Aplica a la posición que se ajuste a tu perfil, en caso de no encontrarla, compártenos tu CV a empleo@briq.mx para contemplarte en futuras oportunidades.</p>
-			</div>
-			<div>
-				{nonDraftPosts.map(post =>
-					<Post post={post} />
-				)}
-				{nonDraftPosts.length === 0 && <div class="px-4 py-8 bg-blue/10 rounded-xl text-center border border-blue/10">
-					<h3 class="text-xl mb-2">No hay vacantes activas</h3>
-					<p class="max-w-xl mx-auto">Por el momento no tenemos vacantes activas, pero puedes compartirnos tu CV y te contactaremos en cuanto tengamos una vacante que se ajuste a tu perfil.</p>
-				</div>}
-			</div>
-			<small class="text-sm py-4 block">briq.mx brinda igualdad de oportunidades de empleo a los solicitantes y empleados sin importar la raza, el color, la religión, el sexo, la orientación sexual, la identidad de género, el origen nacional, el estado de veterano protegido o el estado de discapacidad.</small>
-		</div>
-	</section>
+  <section>
+    <div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
+      <div class="space-y-4 mb-8">
+        <Subtitle title="Nuesros principios" />
+        <p class="text-xl font-display font-medium max-w-3xl">
+          Estos son la clave para que el equipo trascienda; guían nuestra forma
+          de actuar, de pensar e incluso de cómo nos relacionamos dentro y fuera
+          de briq.mx.
+        </p>
+        <div class="flex gap-2 flex-col md:flex-row">
+          <Value
+            name="La gente es lo que importa"
+            desripction="Promovemos el desarrollo y bienestar de nuestro equipo"
+            delay={0}
+          />
+          <Value
+            name="Lo que hacemos, lo hacemos bien"
+            desripction="Lo hacemos con calidad y eficiencia, tanto el camino como el destino."
+            delay={100}
+          />
+          <Value
+            name="Menos es más"
+            desripction="Creamos soluciones claras y fáciles de entender."
+            delay={200}
+          />
+          <Value
+            name="Nuestro impacto es grande"
+            desripction="Maximizamos el impacto de las cosas al hacerlas replicables y escalables."
+            delay={300}
+          />
+          <Value
+            name="Somos transparentes"
+            desripction="Compartimos información útil para fortalecer la confianza y generar aprendizaje."
+            delay={400}
+          />
+        </div>
+        <p>Puedes conocer más de nuestros valores aquí.</p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
+      <div class="flex gap-12 items-start flex-col md:flex-row">
+        <div class="w-full space-y-4">
+          <Subtitle title="Beneficios" />
+          <p class="text-xl font-display font-medium max-w-xl">
+            Nuestro compromiso es brindarte las herramientas necesarias para
+            estar tranquilo.
+          </p>
+          <a class="underline text-blue font-semibold inline-block" href="#"
+            >Conoce más aquí</a
+          >
+        </div>
+        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+          {
+            json.benefits.map((benefit) => (
+              <Card
+                body={benefit.content}
+                image={`${import.meta.env.BASE_URL}/assets/${benefit.image}`}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
+      <div class="flex gap-12 items-start flex-col md:flex-row">
+        <div class="w-full space-y-4">
+          <Subtitle title="Prácticas" />
+          <p class="text-xl font-display font-medium max-w-xl">
+            Así es como promovemos la eficiencia y flexibilidad al colaborar en
+            briq.mx.
+          </p>
+          <a class="underline text-blue font-semibold inline-block" href="#"
+            >Conoce más aquí</a
+          >
+        </div>
+        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+          {
+            json.practices.map((practice) => (
+              <Card
+                body={practice.content}
+                image={`${import.meta.env.BASE_URL}/assets/${practice.image}`}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
+      <div
+        class="flex flex-col justify-center text-center items-center space-y-8 py-24 px-4 bg-navy/5 rounded-lg"
+        data-aos="fade-in"
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}/assets/world.png`}
+          alt=""
+          class="h-[16px] animate-spin"
+        />
+        <h2 class="text-xl md:text-2xl font-display font-medium max-w-2xl">
+          Puedes ser parte de briq.mx sin importar de donde eres y en donde
+          vivas. Nuestra modalidad flexible de trabajo y nuestra cultura
+          incluyente nos ha dado acceso a talento de países como:
+        </h2>
+        <div class="marquee overflow-hidden w-full flex items-center relative">
+          <div
+            class="absolute w-32 left-0 top-0 bottom-0 bg-gradient-to-r from-bone to-transparent z-10"
+          >
+          </div>
+          <div
+            class="absolute w-32 right-0 top-0 bottom-0 bg-gradient-to-l from-bone to-transparent z-10"
+          >
+          </div>
+          <div class="marquee__content">
+            <Location
+              name="España"
+              image={`${import.meta.env.BASE_URL}/assets/españa.jpg`}
+            />
+            <Location
+              name="México"
+              image={`${import.meta.env.BASE_URL}/assets/mexico.jpg`}
+            />
+            <Location
+              name="Perú"
+              image={`${import.meta.env.BASE_URL}/assets/peru.jpg`}
+            />
+            <Location
+              name="Uruguay"
+              image={`${import.meta.env.BASE_URL}/assets/uruguay.jpg`}
+            />
+            <Location
+              name="Colombia"
+              image={`${import.meta.env.BASE_URL}/assets/colombia.jpg`}
+            />
+          </div>
+          <div class="marquee__content" aria-hidden="true">
+            <Location
+              name="España"
+              image={`${import.meta.env.BASE_URL}/assets/españa.jpg`}
+            />
+            <Location
+              name="México"
+              image={`${import.meta.env.BASE_URL}/assets/mexico.jpg`}
+            />
+            <Location
+              name="Perú"
+              image={`${import.meta.env.BASE_URL}/assets/peru.jpg`}
+            />
+            <Location
+              name="Uruguay"
+              image={`${import.meta.env.BASE_URL}/assets/uruguay.jpg`}
+            />
+            <Location
+              name="Colombia"
+              image={`${import.meta.env.BASE_URL}/assets/colombia.jpg`}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
+      <div class="w-full space-y-4 mb-8">
+        <Subtitle title="Convivencia" />
+        <p class="text-xl font-display font-medium max-w-xl">
+          Nos reunimos de forma virtual y presencial para pasar tiempo juntos,
+          fortalecer la colaboración y ponernos al día de lo que hacemos
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <Ritual
+          category="Presencial"
+          title="Briq Break"
+          description="Cada mitad de año nos reunimos para divertirnos y desconectarnos del trabajo."
+          image={`${import.meta.env.BASE_URL}/assets/briq-break.jpg`}
+        />
+        <Ritual
+          category="Presencial"
+          title="Navidad Briq"
+          description="Para celebrar los logros de cada año y definir los objetivos del siguiente periodo."
+          image={`${import.meta.env.BASE_URL}/assets/years-eve.jpg`}
+        />
+        <Ritual
+          category="Virtual"
+          title="Tazas, No tasas"
+          description="Para reunirnos entre nosotros o con invitados y hablar de todo, menos de trabajo."
+          image={`${import.meta.env.BASE_URL}/assets/tazas-no-tasas.jpg`}
+        />
+        <Ritual
+          category="Virtual"
+          title="Update Semanal"
+          description="Para arrancar la semana compartiendo nuestros logros de días pasados y compartiendo temas importantes que todos debamos saber."
+          image={`${import.meta.env.BASE_URL}/assets/update-semanal.jpg`}
+        />
+      </div>
+    </div>
+  </section>
+  <section class="bg-navy/5 border-t">
+    <div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
+      <div class="w-full space-y-4 mb-8">
+        <Subtitle title="Vacantes activas" />
+        <p class="text-xl font-display font-medium">
+          Aplica a la posición que se ajuste a tu perfil, en caso de no
+          encontrarla, compártenos tu CV a empleo@briq.mx para contemplarte en
+          futuras oportunidades.
+        </p>
+      </div>
+      <div>
+        {nonDraftPosts.map((post) => <Post post={post} />)}
+        {
+          nonDraftPosts.length === 0 && (
+            <div class="px-4 py-8 bg-blue/10 rounded-xl text-center border border-blue/10">
+              <h3 class="text-xl mb-2">No hay vacantes activas</h3>
+              <p class="max-w-xl mx-auto">
+                Por el momento no tenemos vacantes activas, pero puedes
+                compartirnos tu CV y te contactaremos en cuanto tengamos una
+                vacante que se ajuste a tu perfil.
+              </p>
+            </div>
+          )
+        }
+      </div>
+      <small class="text-sm py-4 block"
+        >briq.mx brinda igualdad de oportunidades de empleo a los solicitantes y
+        empleados sin importar la raza, el color, la religión, el sexo, la
+        orientación sexual, la identidad de género, el origen nacional, el
+        estado de veterano protegido o el estado de discapacidad.</small
+      >
+    </div>
+  </section>
 </Layout>
 
 <style is:inline>
-.marquee {
-	user-select: none;
-  --gap: 1rem;
-  user-select: none;
-  gap: var(--gap);
-}
+  .marquee {
+    user-select: none;
+    --gap: 1rem;
+    user-select: none;
+    gap: var(--gap);
+  }
 
-.marquee__content {
-  flex-shrink: 0;
-  display: flex;
-  justify-content: space-around;
-  min-width: 100%;
-  gap: var(--gap);
-	animation: scroll 60s linear infinite;
-}
+  .marquee__content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: var(--gap);
+    animation: scroll 60s linear infinite;
+  }
 
-.marquee:hover > .marquee__content {
-	animation-play-state: paused;
-}
+  .marquee:hover > .marquee__content {
+    animation-play-state: paused;
+  }
 
-@keyframes scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(calc(-100% - var(--gap))); }
-}
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
 </style>
 
 <script>
-	import AOS from 'aos';
-	import 'aos/dist/aos.css'; // You can also use <link> for styles
-	AOS.init();
+  import AOS from "aos";
+  import "aos/dist/aos.css"; // You can also use <link> for styles
+  AOS.init();
 </script>
