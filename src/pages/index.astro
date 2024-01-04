@@ -15,8 +15,8 @@ const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
 ---
 
 <Layout title="Welcome to Astro.">
-  <header>
-    <div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
+  <header class="border-b">
+    <div class="max-w-screen-xl w-full mx-auto px-4 py-24">
       <div class="flex items-stretch gap-12 flex-col md:flex-row">
         <div class="w-full flex flex-col justify-between">
           <div class="space-y-8 mb-4">
@@ -42,12 +42,13 @@ const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
             </p>
             <div class="flex gap-2">
               <a
-                href="#"
+                href="#vacantes"
                 class="inline-flex items-center justify-center rounded-md h-[52px] px-4 py-2 font-semibold bg-navy text-white hover:opacity-75"
                 >Ver vacantes</a
               >
               <a
-                href="#"
+                href="https://www.briq.mx/nosotros"
+                target="_blank"
                 class="inline-flex items-center justify-center rounded-md h-[52px] px-4 py-2 font-semibold bg-navy/10 text-navy hover:bg-navy/20"
                 >Conócenos</a
               >
@@ -68,8 +69,8 @@ const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
       </div>
     </div>
   </header>
-  <section>
-    <div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
+  <section class="border-b">
+    <div class="max-w-screen-xl w-full mx-auto px-4 py-24">
       <div class="flex gap-12 items-stretch md:flex-row flex-col-reverse">
         <div class="w-full">
           <GridPic image={`${import.meta.env.BASE_URL}/assets/about.jpg`} />
@@ -99,9 +100,8 @@ const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
       </div>
     </div>
   </section>
-
-  <section>
-    <div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
+  <section class="border-b">
+    <div class="max-w-screen-xl w-full mx-auto px-4 py-24">
       <div class="space-y-4 mb-8">
         <Subtitle title="Nuesros principios" />
         <p class="text-xl font-display font-medium max-w-3xl">
@@ -140,8 +140,8 @@ const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
       </div>
     </div>
   </section>
-  <section>
-    <div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
+  <section class="border-b">
+    <div class="max-w-screen-xl w-full mx-auto px-4 py-24">
       <div class="flex gap-12 items-start flex-col md:flex-row">
         <div class="w-full space-y-4">
           <Subtitle title="Beneficios" />
@@ -166,8 +166,8 @@ const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
       </div>
     </div>
   </section>
-  <section>
-    <div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
+  <section class="border-b">
+    <div class="max-w-screen-xl w-full mx-auto px-4 py-24">
       <div class="flex gap-12 items-start flex-col md:flex-row">
         <div class="w-full space-y-4">
           <Subtitle title="Prácticas" />
@@ -193,7 +193,7 @@ const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
     </div>
   </section>
   <section>
-    <div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
+    <div class="max-w-screen-xl w-full mx-auto px-4 py-24">
       <div
         class="flex flex-col justify-center text-center items-center space-y-8 py-24 px-4 bg-navy/5 rounded-lg"
         data-aos="fade-in"
@@ -266,7 +266,7 @@ const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
     </div>
   </section>
   <section>
-    <div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
+    <div class="max-w-screen-xl w-full mx-auto px-4 py-24">
       <div class="w-full space-y-4 mb-8">
         <Subtitle title="Convivencia" />
         <p class="text-xl font-display font-medium max-w-xl">
@@ -277,13 +277,13 @@ const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <Ritual
           category="Presencial"
-          title="Briq Break"
+          title="briq Break"
           description="Cada mitad de año nos reunimos para divertirnos y desconectarnos del trabajo."
           image={`${import.meta.env.BASE_URL}/assets/briq-break.jpg`}
         />
         <Ritual
           category="Presencial"
-          title="Navidad Briq"
+          title="briq Week"
           description="Para celebrar los logros de cada año y definir los objetivos del siguiente periodo."
           image={`${import.meta.env.BASE_URL}/assets/years-eve.jpg`}
         />
@@ -302,8 +302,8 @@ const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
       </div>
     </div>
   </section>
-  <section class="bg-navy/5 border-t">
-    <div class="max-w-screen-lg w-full mx-auto px-4 border-l border-r py-24">
+  <section class="bg-navy/5 border-t" id="vacantes">
+    <div class="max-w-screen-xl w-full mx-auto px-4 py-24">
       <div class="w-full space-y-4 mb-8">
         <Subtitle title="Vacantes activas" />
         <p class="text-xl font-display font-medium">

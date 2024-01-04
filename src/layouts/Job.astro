@@ -1,16 +1,20 @@
 ---
-const {frontmatter} = Astro.props;
+const { frontmatter } = Astro.props;
 import Layout from "./Layout.astro";
-import GridPic from '../components/GridPic.astro';
+import GridPic from "../components/GridPic.astro";
 ---
+
 <Layout title={frontmatter.title}>
   <nav class="py-4 border-b">
     <div class="max-w-screen-xl mx-auto w-full px-4">
       <div class="flex items-center justify-between">
-        <a href="/" class="inline-block">
+        <a href={`${import.meta.env.BASE_URL}`} class="inline-block">
           <img src="/assets/logo.svg" alt="Briq Logo" class="h-6" />
         </a>
-        <a href="/" class="inline-block font-display font-medium">
+        <a
+          href={`${import.meta.env.BASE_URL}#vacantes`}
+          class="inline-block font-display font-medium"
+        >
           Ver vacantes
         </a>
       </div>
@@ -26,39 +30,77 @@ import GridPic from '../components/GridPic.astro';
             <a href="/" class="inline-block text-navy">{frontmatter.title}</a>
           </div>
           <div>
-            <h1 class="text-4xl font-bold font-display mb-4">{frontmatter.title}</h1>
+            <h1 class="text-4xl font-bold font-display mb-4">
+              {frontmatter.title}
+            </h1>
             <div class="flex gap-2 flex-wrap">
-              <span class="py-1 px-2 rounded-md inline-block bg-navy/10">{frontmatter.location}</span>
-              <span class="py-1 px-2 rounded-md inline-block bg-navy/10">{frontmatter.area}</span>
-              <span class="py-1 px-2 rounded-md inline-block bg-navy/10">{frontmatter.type}</span>
+              <span class="py-1 px-2 rounded-md inline-block bg-navy/10"
+                >{frontmatter.location}</span
+              >
+              <span class="py-1 px-2 rounded-md inline-block bg-navy/10"
+                >{frontmatter.area}</span
+              >
+              <span class="py-1 px-2 rounded-md inline-block bg-navy/10"
+                >{frontmatter.type}</span
+              >
             </div>
           </div>
         </div>
       </header>
       <div class="w-full py-4 md:px-8 flex flex-col gap-4">
         <div>
-          <div class="prose prose-ul:list-disc prose-headings:font-display prose-headings:font-semibold prose-headings:mb-2 max-w-2xl">
+          <div
+            class="prose prose-ul:list-disc prose-headings:font-display prose-headings:font-semibold prose-headings:mb-2 max-w-2xl"
+          >
             <slot />
           </div>
         </div>
         <section>
-          <div class="bg-blue/10 rounded-xl p-8 flex flex-col justify-between h-full gap-4 items-start">
-            <h2 class="font-bold font-display text-2xl">Aplica a esta vacante</h2>
-            <p class="text-xl">Llena el siguiente formulario para aplicar a esta vacante</p>
-            <a href="#" class="inline-flex items-center justify-center rounded-md h-[52px] px-4 py-2 font-semibold bg-navy text-white hover:opacity-75">Aplicar ahora</a>
+          <div
+            class="bg-blue/10 rounded-xl p-8 flex flex-col justify-between h-full gap-4 items-start"
+          >
+            <h2 class="font-bold font-display text-2xl">
+              Aplica a esta vacante
+            </h2>
+            <p class="text-xl">
+              Llena el siguiente formulario para aplicar a esta vacante
+            </p>
+            <a
+              href="#"
+              class="inline-flex items-center justify-center rounded-md h-[52px] px-4 py-2 font-semibold bg-navy text-white hover:opacity-75"
+              >Aplicar ahora</a
+            >
           </div>
         </section>
         <section>
-          <div class="bg-blue/10 rounded-xl p-8 flex flex-col justify-between h-full gap-4 items-start">
+          <div
+            class="bg-blue/10 rounded-xl p-8 flex flex-col justify-between h-full gap-4 items-start"
+          >
             <img src="/assets/logo.svg" alt="Briq Logo" class="h-6" />
             <h2 class="font-bold font-display text-2xl">Acerca de briq.mx</h2>
             <div class="font-display font-medium text-sm space-y-4">
-              <p>briq.mx es una plataforma mexicana de fondeo colectivo que conecta a inversionistas con desarrolladores de proyectos inmobiliarios. </p>
-              <p>A inversionistas pequeños, medianos y grandes les ofrecemos la oportunidad de invertir en proyectos inmobiliarios de desarrolladores reconocidos que han pasado por un estricto proceso de due diligence. </p>
-              <p>A desarrolladores les ofrecemos una alternativa complementaria de financiamiento que es más eficiente y flexible que los bancos, más barata que las preventas y más amplia que su círculo de inversionistas cercanos.</p>
+              <p>
+                briq.mx es una plataforma mexicana de fondeo colectivo que
+                conecta a inversionistas con desarrolladores de proyectos
+                inmobiliarios.
+              </p>
+              <p>
+                A inversionistas pequeños, medianos y grandes les ofrecemos la
+                oportunidad de invertir en proyectos inmobiliarios de
+                desarrolladores reconocidos que han pasado por un estricto
+                proceso de due diligence.
+              </p>
+              <p>
+                A desarrolladores les ofrecemos una alternativa complementaria
+                de financiamiento que es más eficiente y flexible que los
+                bancos, más barata que las preventas y más amplia que su círculo
+                de inversionistas cercanos.
+              </p>
             </div>
             <div>
-              <a class="underline font-semibold" href="https://briq.mx">Conoce mas aquí</a>
+              <a class="underline font-semibold" href="https://briq.mx"
+                >Conoce mas aquí</a
+              >
             </div>
           </div>
         </section>
