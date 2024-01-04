@@ -9,7 +9,11 @@ import GridPic from "../components/GridPic.astro";
     <div class="max-w-screen-xl mx-auto w-full px-4">
       <div class="flex items-center justify-between">
         <a href={`${import.meta.env.BASE_URL}`} class="inline-block">
-          <img src="/assets/logo.svg" alt="Briq Logo" class="h-6" />
+          <img
+            src={`${import.meta.env.BASE_URL}/assets/logo.svg`}
+            alt="Briq Logo"
+            class="h-6"
+          />
         </a>
         <a
           href={`${import.meta.env.BASE_URL}#vacantes`}
@@ -76,7 +80,11 @@ import GridPic from "../components/GridPic.astro";
           <div
             class="bg-blue/10 rounded-xl p-8 flex flex-col justify-between h-full gap-4 items-start"
           >
-            <img src="/assets/logo.svg" alt="Briq Logo" class="h-6" />
+            <img
+              src={`${import.meta.env.BASE_URL}/assets/logo.svg`}
+              alt="Briq Logo"
+              class="h-6"
+            />
             <h2 class="font-bold font-display text-2xl">Acerca de briq.mx</h2>
             <div class="font-display font-medium text-sm space-y-4">
               <p>
