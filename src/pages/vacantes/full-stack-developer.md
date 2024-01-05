@@ -5,7 +5,7 @@ date: 2020-01-01
 location: Ciudad México
 area: Marketing
 type: Tiempo completo
-draft: false
+draft: true
 ---
 
 ## Acerca de este rol

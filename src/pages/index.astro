@@ -25,10 +25,10 @@ const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
                 <img
                   src={`${import.meta.env.BASE_URL}/assets/logo.svg`}
                   alt=""
-                  class="h-[24px]"
+                  class="h-[32px]"
                 />
                 <span
-                  class="bg-blue text-navy font-display font-bold px-1 py-2 text-xs rounded-lg fade-in"
+                  class="bg-blue text-navy font-display font-bold px-1 py-2 text-sm rounded-lg fade-in"
                   >Carreras</span
                 >
               </div>
@@ -351,7 +351,7 @@ const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
     justify-content: space-around;
     min-width: 100%;
     gap: var(--gap);
-    animation: scroll 60s linear infinite;
+    animation: scroll 30s linear infinite;
   }
 
   .marquee:hover > .marquee__content {
